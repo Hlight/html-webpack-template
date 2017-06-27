@@ -1,41 +1,22 @@
 {
-  "name": "html-webpack-template",
-  "version": "5.5.0",
-  "description": "A template with more features than the default html-webpack-plugin template",
+  "name": "bf-html-webpack-template",
+  "version": "1.0.41",
+  "description": "Fork of html-webpack-template package",
   "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
   "scripts": {
-    "commit": "git-cz",
-    "test": "echo \"Everything is fine.  No tests here.\" && exit 0",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaketrent/html-webpack-template.git"
+    "url": "git+https://github.com/Hlight/html-webpack-template.git"
   },
-  "keywords": [
-    "webpack",
-    "template",
-    "html-webpack-plugin",
-    "index.html",
-    "index.ejs"
-  ],
-  "author": "jaketrent",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaketrent/html-webpack-template/issues"
+    "url": "https://github.com/Hlight/html-webpack-template/issues"
   },
-  "homepage": "https://github.com/jaketrent/html-webpack-template",
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "devDependencies": {
-    "commitizen": "^2.4.6",
-    "cz-conventional-changelog": "^1.1.5",
-    "semantic-release": "^4.3.5"
-  },
-  "peerDependencies": {
-    "html-webpack-plugin": "2.x"
-  }
+  "homepage": "https://github.com/Hlight/html-webpack-template#readme"
 }

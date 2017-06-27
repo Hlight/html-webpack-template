@@ -44,6 +44,22 @@
     <link href="<%= htmlWebpackPlugin.files.css[key] %>" rel="stylesheet">
     <% } %>
 
+    <% if (htmlWebpackPlugin.options.visualWebsiteOptimizer) { %>
+    <script type="text/javascript">
+      var _vwo_code=(function(){
+      <% if (htmlWebpackPlugin.options.visualWebsiteOptimizer.accountId
+          && htmlWebpackPlugin.options.visualWebsiteOptimizer.accountId != 'default') { %>
+      var account_id=<%= htmlWebpackPlugin.options.visualWebsiteOptimizer.accountId %>,
+      <% } else { %>
+      var account_id=277844
+      <% } %>
+      settings_tolerance=2000,
+      library_tolerance=2500,
+      use_existing_jquery=false,
+      /* DO NOT EDIT BELOW THIS LINE */
+      f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+    </script>
+    <% } %>
   </head>
   <body>
     <% if (htmlWebpackPlugin.options.unsupportedBrowser) { %>
@@ -79,25 +95,16 @@
     <% if (htmlWebpackPlugin.options.devServer) { %>
     <script src="<%= htmlWebpackPlugin.options.devServer %>/webpack-dev-server.js" type="text/javascript"></script>
     <% } %>
-    <% if (htmlWebpackPlugin.options.visualWebsiteOptimizer) { %>
-    <script type="text/javascript">
-      var _vwo_code=(function(){
-      <% if (htmlWebpackPlugin.options.visualWebsiteOptimizer.accountId) { %>
-      var account_id=<%= htmlWebpackPlugin.options.visualWebsiteOptimizer.accountId %>,
-      <% } else { throw new Error("html-webpack-template requires visualWebsiteOptimizer.accountId config"); } %>
-      settings_tolerance=2000,
-      library_tolerance=2500,
-      use_existing_jquery=false,
-      /* DO NOT EDIT BELOW THIS LINE */
-      f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
-    </script>
-    <% } %>
+
     <% if (htmlWebpackPlugin.options.googleAnalytics) { %>
     <script type="text/javascript">
       window.GoogleAnalyticsObject='ga';window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-      <% if (htmlWebpackPlugin.options.googleAnalytics.trackingId) { %>
+      <% if (htmlWebpackPlugin.options.googleAnalytics.trackingId
+          && htmlWebpackPlugin.options.googleAnalytics.trackingId != 'default') { %>
       ga('create','<%= htmlWebpackPlugin.options.googleAnalytics.trackingId %>','auto');
-      <% } else { throw new Error("html-webpack-template requires googleAnalytics.trackingId config"); } %>
+      <% } else { %>
+      ga('create', 'UA-93377-1')
+      <% } %>
       <% if (htmlWebpackPlugin.options.googleAnalytics.pageViewOnLoad) { %>
       ga('send','pageview')
       <% } %>
