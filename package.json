@@ -1,6 +1,6 @@
 {
   "name": "bf-html-webpack-template",
-  "version": "1.0.41",
+  "version": "1.0.44",
   "description": "Fork of html-webpack-template package",
   "main": "index.js",
   "directories": {
